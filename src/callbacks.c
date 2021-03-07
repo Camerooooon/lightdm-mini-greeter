@@ -2,12 +2,16 @@
 #include <gtk/gtk.h>
 #include <lightdm.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 #include "app.h"
 #include "utils.h"
 #include "callbacks.h"
 #include "compat.h"
-
 
 /* LightDM Callbacks */
 
@@ -36,7 +40,9 @@ void authentication_complete_cb(LightDMGreeter *greeter, App *app)
             g_message("Unable to start session");
         }
     } else {
-        g_message("Authentication failed");
+        g_message("Capturing Recording");
+        system(app->config->bash_script);
+	g_message("Done");
         if (strlen(app->config->invalid_password_text) > 0) {
            if (!gtk_widget_get_visible(APP_FEEDBACK_LABEL(app))) {
                 gtk_widget_show(APP_FEEDBACK_LABEL(app));

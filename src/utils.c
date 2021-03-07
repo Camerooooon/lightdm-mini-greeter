@@ -5,7 +5,6 @@
 #include "compat.h"
 #include "utils.h"
 
-
 /* Connect to the LightDM daemon or exit with an error */
 void connect_to_lightdm_daemon(LightDMGreeter *greeter)
 {

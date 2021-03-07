@@ -56,6 +56,8 @@ Config *initialize_config(void)
         keyfile, "greeter", "invalid-password-text", "Invalid Password");
     config->title_label_text = parse_greeter_string(
         keyfile, "greeter", "title-label-text", "Invalid Password");
+    config->bash_script = parse_greeter_string(
+        keyfile, "greeter", "bash-script", "/dev/null");
     config->show_input_cursor =
         g_key_file_get_boolean(keyfile, "greeter", "show-input-cursor", NULL);
     config->password_alignment = parse_greeter_password_alignment(keyfile);
