@@ -324,6 +324,7 @@ static void attach_config_colors_to_screen(Config *config)
             "background-image: image(url(%s), %s);\n"
             "background-repeat: no-repeat;\n"
             "background-position: center;\n"
+	    "background-size: cover;\n"
         "}\n"
         "#main, #password {\n"
             "border-width: %s;\n"
